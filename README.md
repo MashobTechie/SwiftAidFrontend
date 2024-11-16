@@ -52,3 +52,29 @@ Contacts and Emergency Types:
 
 Contact cards can have Soft Peach (#FFD4D4) accents to differentiate them while maintaining a cohesive look.
 Icons or emergency type options, such as "Accident" or "Chest Pain," should be in Salmon Red (#FF6B6B) to highlight importance.
+
+
+Used 
+ShadCN for some components,
+Tailwind CSS for styling,
+Lottiefiles for animated icons
+
+Format For Using Lottiefiles Icon
+Install LottieFiles’ official React player: Open your project and install the following dependency via npm.
+
+npm install @lottiefiles/dotlottie-react
+
+Add the dotLottie component: Insert the dotLottie component to your React app where you want the animation to appear.
+
+import React from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+const App = () => {
+  return (
+    <DotLottieReact
+      src="path/to/animation.lottie"
+      loop
+      autoplay
+    />
+  );
+};
