@@ -1,95 +1,81 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Home, Phone, FileText, User } from "lucide-react"; // Icons from Lucide (ShadCN's choice)
+import { Home, Phone, FileText, User } from "lucide-react"; // Icons from Lucide
 
 const Footer = () => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("home");
 
   const handleIconClick = (section) => {
-    setActive(active === section ? null : section); // Toggle active state
+    setActive(section); // Set the active button
   };
 
   return (
-    <footer className="fixed bottom-0 w-full bg-white shadow-lg rounded-t-2xl">
-      <div className="flex justify-between items-center py-4 px-2">
+    <footer className="fixed bottom-0 w-full bg-white text-black shadow-lg rounded-t-2xl">
+      <div className="flex justify-around items-center py-2">
         {/* Home */}
         <button
-          className={`flex items-center justify-center gap-2 w-full max-w-[70px] md:max-w-[100px] text-sm py-2 rounded-full ${
-            active === "home" ? "bg-[#FF6B6B] text-white" : "text-black"
-          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
-          aria-label="Home"
+          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
+            active === "home"
+              ? "bg-red-500 text-white scale-110 shadow-lg"
+              : "text-black"
+          }`}
           onClick={() => handleIconClick("home")}
+          aria-label="Home"
         >
-          <Home className={`w-6 h-6 ${active === "home" ? "text-white" : "text-black"}`} />
-          <span
-            className={`transition-all duration-300 ${
-              active === "home"
-                ? "opacity-100 translate-x-0 text-white"
-                : "opacity-0 translate-x-[-20px]"
-            } md:opacity-100 md:translate-x-0`}
-          >
-            Home
-          </span>
+          <Home className={`w-6 h-6 ${active !== "home" && "text-black"}`} />
+          {active === "home" && <span className="text-xs font-medium">Home</span>}
         </button>
 
-        {/* Emergency Contacts */}
+        {/* Contacts */}
         <button
-          className={`flex items-center justify-center gap-2 w-full max-w-[70px] md:max-w-[100px] text-sm py-2 rounded-full ${
-            active === "contacts" ? "bg-[#FF6B6B] text-white" : "text-black"
-          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
-          aria-label="Emergency Contacts"
+          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
+            active === "contacts"
+              ? "bg-red-500 text-white scale-110 shadow-lg"
+              : "text-black"
+          }`}
           onClick={() => handleIconClick("contacts")}
+          aria-label="Contacts"
         >
-          <Phone className={`w-6 h-6 ${active === "contacts" ? "text-white" : "text-black"}`} />
-          <span
-            className={`transition-all duration-300 ${
-              active === "contacts"
-                ? "opacity-100 translate-x-0 text-white"
-                : "opacity-0 translate-x-[-20px]"
-            } md:opacity-100 md:translate-x-0`}
-          >
-            Emergency Contacts
-          </span>
+          <Phone
+            className={`w-6 h-6 ${active !== "contacts" && "text-black"}`}
+          />
+          {active === "contacts" && (
+            <span className="text-xs font-medium">Contacts</span>
+          )}
         </button>
 
         {/* Medical Record */}
         <button
-          className={`flex items-center justify-center gap-2 w-full max-w-[70px] md:max-w-[100px] text-sm py-2 rounded-full ${
-            active === "medical" ? "bg-[#FF6B6B] text-white" : "text-black"
-          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
-          aria-label="Medical Record"
+          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
+            active === "medical"
+              ? "bg-red-500 text-white scale-110 shadow-lg"
+              : "text-black"
+          }`}
           onClick={() => handleIconClick("medical")}
+          aria-label="Medical Record"
         >
-          <FileText className={`w-6 h-6 ${active === "medical" ? "text-white" : "text-black"}`} />
-          <span
-            className={`transition-all duration-300 ${
-              active === "medical"
-                ? "opacity-100 translate-x-0 text-white"
-                : "opacity-0 translate-x-[-20px]"
-            } md:opacity-100 md:translate-x-0`}
-          >
-            Medical Record
-          </span>
+          <FileText
+            className={`w-6 h-6 ${active !== "medical" && "text-black"}`}
+          />
+          {active === "medical" && (
+            <span className="text-xs font-medium">Medical</span>
+          )}
         </button>
 
         {/* Profile */}
         <button
-          className={`flex items-center justify-center gap-2 w-full max-w-[70px] md:max-w-[100px] text-sm py-2 rounded-full ${
-            active === "profile" ? "bg-[#FF6B6B] text-white" : "text-black"
-          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
-          aria-label="Profile"
+          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
+            active === "profile"
+              ? "bg-red-500 text-white scale-110 shadow-lg"
+              : "text-black"
+          }`}
           onClick={() => handleIconClick("profile")}
+          aria-label="Profile"
         >
-          <User className={`w-6 h-6 ${active === "profile" ? "text-white" : "text-black"}`} />
-          <span
-            className={`transition-all duration-300 ${
-              active === "profile"
-                ? "opacity-100 translate-x-0 text-white"
-                : "opacity-0 translate-x-[-20px]"
-            } md:opacity-100 md:translate-x-0`}
-          >
-            Profile
-          </span>
+          <User className={`w-6 h-6 ${active !== "profile" && "text-black"}`} />
+          {active === "profile" && (
+            <span className="text-xs font-medium">Profile</span>
+          )}
         </button>
       </div>
     </footer>
