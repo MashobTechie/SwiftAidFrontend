@@ -1,81 +1,95 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Home, Phone, FileText, User } from "lucide-react"; // Icons from Lucide
+import { Home, Phone, FileText, User } from "lucide-react"; // Icons from Lucide (ShadCN's choice)
 
 const Footer = () => {
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("home"); // Set "home" as default active
 
   const handleIconClick = (section) => {
-    setActive(section); // Set the active button
+    setActive(active === section ? null : section); // Toggle active state
   };
 
   return (
-    <footer className="fixed bottom-0 w-full bg-white text-black shadow-lg rounded-t-2xl">
-      <div className="flex justify-around items-center py-2">
+    <footer className="fixed bottom-0 w-full bg-white shadow-lg">
+      <div className="flex justify-between items-center py-4">
         {/* Home */}
         <button
-          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
-            active === "home"
-              ? "bg-red-500 text-white scale-110 shadow-lg"
-              : "text-black"
-          }`}
-          onClick={() => handleIconClick("home")}
+          className={`flex items-center justify-center gap-2 w-full text-sm py-2 ${
+            active === "home" ? "bg-[#FF6B6B] text-white" : "text-black"
+          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
           aria-label="Home"
+          onClick={() => handleIconClick("home")}
         >
-          <Home className={`w-6 h-6 ${active !== "home" && "text-black"}`} />
-          {active === "home" && <span className="text-xs font-medium">Home</span>}
+          <Home className={`w-6 h-6 ${active === "home" ? "text-white" : "text-black"}`} />
+          <span
+            className={`transition-all duration-300 ${
+              active === "home"
+                ? "opacity-100 translate-x-0 text-white"
+                : "opacity-0 translate-x-[-20px]"
+            } md:opacity-100 md:translate-x-0`}
+          >
+            Home
+          </span>
         </button>
 
-        {/* Contacts */}
+        {/* Emergency Contacts */}
         <button
-          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
-            active === "contacts"
-              ? "bg-red-500 text-white scale-110 shadow-lg"
-              : "text-black"
-          }`}
+          className={`flex items-center justify-center gap-2 w-full text-sm py-2 ${
+            active === "contacts" ? "bg-[#FF6B6B] text-white" : "text-black"
+          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
+          aria-label="Emergency Contacts"
           onClick={() => handleIconClick("contacts")}
-          aria-label="Contacts"
         >
-          <Phone
-            className={`w-6 h-6 ${active !== "contacts" && "text-black"}`}
-          />
-          {active === "contacts" && (
-            <span className="text-xs font-medium">Contacts</span>
-          )}
+          <Phone className={`w-6 h-6 ${active === "contacts" ? "text-white" : "text-black"}`} />
+          <span
+            className={`transition-all duration-300 ${
+              active === "contacts"
+                ? "opacity-100 translate-x-0 text-white"
+                : "opacity-0 translate-x-[-20px]"
+            } md:opacity-100 md:translate-x-0`}
+          >
+            Emergency Contacts
+          </span>
         </button>
 
         {/* Medical Record */}
         <button
-          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
-            active === "medical"
-              ? "bg-red-500 text-white scale-110 shadow-lg"
-              : "text-black"
-          }`}
-          onClick={() => handleIconClick("medical")}
+          className={`flex items-center justify-center gap-2 w-full text-sm py-2 ${
+            active === "medical" ? "bg-[#FF6B6B] text-white" : "text-black"
+          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
           aria-label="Medical Record"
+          onClick={() => handleIconClick("medical")}
         >
-          <FileText
-            className={`w-6 h-6 ${active !== "medical" && "text-black"}`}
-          />
-          {active === "medical" && (
-            <span className="text-xs font-medium">Medical</span>
-          )}
+          <FileText className={`w-6 h-6 ${active === "medical" ? "text-white" : "text-black"}`} />
+          <span
+            className={`transition-all duration-300 ${
+              active === "medical"
+                ? "opacity-100 translate-x-0 text-white"
+                : "opacity-0 translate-x-[-20px]"
+            } md:opacity-100 md:translate-x-0`}
+          >
+            Medical Record
+          </span>
         </button>
 
         {/* Profile */}
         <button
-          className={`flex flex-col items-center justify-center gap-1 w-16 h-16 transition-all rounded-full ${
-            active === "profile"
-              ? "bg-red-500 text-white scale-110 shadow-lg"
-              : "text-black"
-          }`}
-          onClick={() => handleIconClick("profile")}
+          className={`flex items-center justify-center gap-2 w-full text-sm py-2 ${
+            active === "profile" ? "bg-[#FF6B6B] text-white" : "text-black"
+          } hover:text-[#FF6B6B] focus:outline-none transition-all`}
           aria-label="Profile"
+          onClick={() => handleIconClick("profile")}
         >
-          <User className={`w-6 h-6 ${active !== "profile" && "text-black"}`} />
-          {active === "profile" && (
-            <span className="text-xs font-medium">Profile</span>
-          )}
+          <User className={`w-6 h-6 ${active === "profile" ? "text-white" : "text-black"}`} />
+          <span
+            className={`transition-all duration-300 ${
+              active === "profile"
+                ? "opacity-100 translate-x-0 text-white"
+                : "opacity-0 translate-x-[-20px]"
+            } md:opacity-100 md:translate-x-0`}
+          >
+            Profile
+          </span>
         </button>
       </div>
     </footer>
