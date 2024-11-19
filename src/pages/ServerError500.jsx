@@ -13,11 +13,10 @@ const ServerError500 = () => {
       <div className="w-64 h-64">
         <Lottie animationData={serverErrorAnimation} loop={true} />
       </div>
-      {/* Alternatively, you can use an image */}
-      {/* <img src="/path/to/server-error.svg" alt="Server Error" className="w-64 h-64" /> */}
+      
       
       {/* Error Message */}
-      <h1 className="text-[8rem] font-bold text-red-600">500</h1>
+      {/* <h1 className="text-[8rem] font-bold text-red-600">500</h1> */}
       <h2 className="text-2xl font-semibold text-center">
         Oops! Internal Server Error
       </h2>
@@ -30,7 +29,7 @@ const ServerError500 = () => {
       <div className="mt-6 flex gap-4">
         <button
           onClick={() => navigate(-1)} // Navigate back to the previous page
-          className="px-6 py-2 bg-red-500 text-white rounded-md shadow-md hover:bg-red-600 transition"
+          className="px-5 py-2 bg-red-500 text-white rounded-md shadow-md hover:bg-red-600 transition"
         >
           Go Back
         </button>
