@@ -59,22 +59,4 @@ ShadCN for some components,
 Tailwind CSS for styling,
 Lottiefiles for animated icons
 
-Format For Using Lottiefiles Icon
-Install LottieFiles’ official React player: Open your project and install the following dependency via npm.
-
-npm install @lottiefiles/dotlottie-react
-
-Add the dotLottie component: Insert the dotLottie component to your React app where you want the animation to appear.
-
-import React from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-
-const App = () => {
-  return (
-    <DotLottieReact
-      src="path/to/animation.lottie"
-      loop
-      autoplay
-    />
-  );
-};
+ 
